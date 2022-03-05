@@ -1,0 +1,34 @@
+.login-page {
+    .sign-in {
+        &.hide {
+            display: none;
+        }
+        .login-fail-caption {
+            display: flex;
+            justify-content: center;
+            &.hide {
+                display: none;
+            }
+        }
+    }
+    .sign-up {
+        &.hide {
+            display: none;
+        }
+    }
+    .verify-email {
+        &.hide {
+            display: none;
+        }
+    }
+    .reset-email {
+        &.hide {
+            display: none;
+        }
+    }
+    .reset-email-sent {
+        &.hide {
+            display: none;
+        }
+    }
+}

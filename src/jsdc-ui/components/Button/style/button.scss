@@ -1,0 +1,55 @@
+// @tailwind base;
+// @tailwind components;
+// @tailwind utilities;
+
+@import '../../../style/index.scss';
+
+.jui-button {
+  @include jui-button(bg-primary);
+
+  .jui-button-label{
+    @apply mx-1;
+  }
+
+  &.accent{
+    @include jui-button(bg-accent);
+
+  }
+  &:disabled{
+    @include jui-disabled;
+    @apply bg-gray-400;
+  }
+  &.outline{
+    @include outline;
+  }
+  &.flat{
+    @apply bg-primary-bg-light bg-opacity-10;
+    box-shadow: none;
+    &:hover{
+      @apply bg-primary-bg-light bg-opacity-30;
+    }
+  }
+  &.sm {
+    margin: 2px;
+    padding: 2px 4px;
+    min-width: 50px;
+    min-height: 30px;
+  }
+  &.md {
+    margin: 4px;
+    padding: 2px 8px;
+    min-width: 70px;
+    min-height: 40px;
+  }
+  &.larg {
+    margin: 5px;
+    padding: 2px 10px;
+    min-width: 90px;
+    min-height: 50px;
+  }
+  &.xsm {
+    margin: 1px;
+    padding: 2px;
+    min-height: 25px;
+  }
+}

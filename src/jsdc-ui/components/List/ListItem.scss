@@ -1,0 +1,32 @@
+.jui-listItem{
+  @apply relative flex flex-col py-1;
+  -webkit-box-pack: start;
+  -webkit-box-align: center;
+  text-decoration: none;
+  &::after{
+    @apply border-b border-dashed;
+    content: ' ';
+    top: 5px;
+    position: relative;
+
+  }
+  .jui-rowSection{
+    @apply flex items-center justify-start relative py-2 px-1 flex items-center  text-left box-border w-full cursor-pointer;
+    -webkit-box-pack: start;
+    -webkit-box-align: center;
+    text-decoration: none;
+    .jui-startAction{
+      @apply flex items-center;
+      min-width: 55px;
+    }
+  
+    .jui-mainSection{
+      @apply flex flex-auto min-w-0 mt-1 text-primary-text text-opacity-75;
+    }
+  
+    .jui-endAcriont{
+      @apply absolute right-4 top-1/2;
+      transform: translateY(-50%);
+    }
+  }
+}

@@ -1,0 +1,22 @@
+
+.jui-tableHeader{
+  @apply font-bold border-b border-solid border-white border-opacity-40 
+  p-3 text-left sticky top-0 left-0;
+  line-height: 1.5rem;
+
+  &.hollow{
+    @apply border-b-0
+  }
+  &.dense{
+    @apply p-1;
+  }
+  &.primary{
+    @apply bg-primary-bg-dark;
+  }
+  &.accent{
+    @apply bg-accent-dark;
+  }
+  &.flat{
+    @apply bg-primary-bg-dark bg-opacity-50;
+  }
+}

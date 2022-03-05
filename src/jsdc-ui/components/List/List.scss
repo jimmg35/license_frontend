@@ -1,0 +1,35 @@
+.jui-list{
+  @apply list-none m-0 py-2 relative;
+
+  &.enableSelection{
+    .jui-listItem{
+      &:hover{
+        .jui-rowSection{
+          box-shadow: 0px 0px 20px 10px #80a5c46c;
+          &::before{
+            content: ' ';
+            background: linear-gradient(-45deg, transparent 10px, #80a5c46c 0);
+            margin-left: -10px;
+            position: absolute;
+            width: calc(100% + 10px);
+            height: 100%;
+          }
+        }
+        .jui-mainSection{
+          span{
+            color: #1babcb;
+            z-index: 1;
+            border-left: 4px solid #1babcb;;
+            padding-left: calc(10px - 4px);
+          }
+        }
+      }
+      .jui-mainSection{
+        span{
+          padding-left: 10px;
+          margin-left: -5px;
+        }
+      }
+    }
+  }
+}

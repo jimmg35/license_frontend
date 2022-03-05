@@ -1,0 +1,10 @@
+[
+  {
+    "id": "osm",
+    "name": "OSM",
+    "source": "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+    "meta": {
+      "group": "影像圖層"
+    }
+  }
+]

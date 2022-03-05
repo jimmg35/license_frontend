@@ -1,0 +1,24 @@
+// @tailwind base;
+// @tailwind components;
+// @tailwind utilities;
+
+.jui-radio{
+    @apply inline-flex flex-row relative items-center align-top;
+
+    .jui-circle{
+        @apply cursor-pointer my-0 -mr-0 ml-2;
+        &.disabled{
+            @apply cursor-not-allowed bg-gray-500;
+        }
+    }
+
+    .jui-label{
+        @apply cursor-pointer select-none my-0 -mr-0 ml-1;
+        &.disabled{
+            @apply cursor-not-allowed;
+        }
+        &.hightlight{
+            @apply text-white
+        }
+    }
+}

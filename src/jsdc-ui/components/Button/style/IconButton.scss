@@ -1,0 +1,63 @@
+// @import '../../../style/index.scss';
+
+.jui-icon-button { 
+  display: contents;
+  .jui-button{
+    // @include jui-button(bg-primary);
+    border-radius: 50%;
+    // cursor: pointer;
+    &.light{
+      @apply bg-primary-bg-dark bg-opacity-50;
+    }
+    // &:after{
+    //   border-radius: 50%;
+    //   content: "";
+    //   height: 100%;
+    //   width: 100%;
+    //   top: 0px;
+    //   left: 0px;
+    //   transform: scale(2);
+    //   @apply absolute block opacity-0 transition-all duration-300;
+    //   @apply bg-white bg-opacity-30;
+
+    // }
+    
+    // &:active:after{
+    //   transform: scale(0);
+    //   @apply p-0 m-0 opacity-100 transition-none;
+
+    // }
+    &.sm {
+      margin: 2px;
+      padding: 2px;
+      width: 30px;
+      height: 30px;
+      min-width: 30px;
+      min-height: 30px;
+    }
+    &.md {
+      margin: 4px;
+      padding: 8px;
+      width: 40px;
+      height: 40px;
+      min-width: 30px;
+      min-height: 30px;
+    }
+    &.larg {
+      margin: 5px;
+      padding: 10px;
+      width: 50px;
+      height: 50px;
+      min-width: 30px;
+      min-height: 30px;
+    }
+    &.xsm {
+      margin: 1px;
+      padding: 2px;
+      width: 25px;
+      height: 25px;
+      min-width: 30px;
+      min-height: 30px;
+    }
+  }
+}

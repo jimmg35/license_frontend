@@ -1,0 +1,28 @@
+// @tailwind base;
+// @tailwind components;
+// @tailwind utilities;
+@import '../../style/index.scss';
+
+.jui-checkbox{
+    @apply inline-flex flex-row relative items-center align-top;
+
+    .jui-box{
+        @apply cursor-pointer my-0 -mr-0 ml-2;
+        // margin: 0px 0px 0px 10px;
+        &:disabled{
+            @include jui-disabled;
+            @apply bg-gray-500;
+        }
+    }
+
+    .jui-label{
+        @apply cursor-pointer select-none my-0 -mr-0 ml-1 text-primary-text;
+        // margin: 0px 0px 0px 3px;
+        &.disabled{
+            @include jui-disabled;
+        }
+        &.hightlight{
+            @apply text-white
+        }
+    }
+}

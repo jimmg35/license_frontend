@@ -1,0 +1,21 @@
+
+.jui-tableContainer{
+  max-height: 440px;
+  @apply rounded w-full overflow-x-auto;
+
+  &.hollow{
+    
+  }
+  &.dense{
+    
+  }
+  &.primary{
+    @apply bg-primary-bg;
+  }
+  &.accent{
+    @apply bg-accent-dark;
+  }
+  &.flat{
+    @apply bg-primary-bg bg-opacity-50;
+  }
+}

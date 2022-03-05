@@ -1,0 +1,14 @@
+
+.jui-tableRow{
+  @apply align-middle cursor-pointer;
+  outline: 0px;
+  transition: background-color 0.3s;
+
+  &:hover{
+    @apply bg-primary-bg-darker bg-opacity-30;
+  }
+
+  &.active{
+    @apply bg-primary-dark bg-opacity-60;
+  }
+}

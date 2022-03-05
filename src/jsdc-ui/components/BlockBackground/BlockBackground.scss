@@ -1,0 +1,22 @@
+.jui-block-bg{
+    @apply fixed top-0 left-0 min-h-full min-w-full bg-opacity-60 bg-black z-auto;
+    
+    &.zIndex-0{
+        @apply z-0;
+    }
+    &.zIndex-1{
+        @apply z-10;
+    }
+    &.zIndex-2{
+        @apply z-20;
+    }
+    &.zIndex-3{
+        @apply z-30;
+    }
+    &.zIndex-4{
+        @apply z-40;
+    }
+    &.zIndex-5{
+        @apply z-50;
+    }
+}

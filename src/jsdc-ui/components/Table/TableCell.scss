@@ -1,0 +1,20 @@
+
+.jui-tableCell{
+  @apply border-b border-solid border-white border-opacity-40 p-3 text-right text-primary-text;
+  line-height: 1.43;
+  vertical-align: inherit;
+
+  &.jui-tableCell-head{
+    text-align: justify;
+    text-justify: distribute-all-lines;
+    text-align-last: justify;
+  }
+
+  &.hollow{
+    @apply border-b-0;
+  }
+  &.dense{
+    @apply pt-0 pb-1;
+    
+  }
+}

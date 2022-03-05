@@ -1,0 +1,71 @@
+.jui-drawer {
+  position: fixed;
+  transition: all 0.6s;
+  background-color: rgb(217, 217, 228);
+  @apply drop-shadow-lg z-30 flex-col flex;
+
+  &.left {
+    top: 0px;
+    left: 0px;
+    min-width: 300px;
+    max-width: 90vw;
+    min-height: 100vh;
+    height: 100vh;
+    &.jui-drawer-hide {
+      min-width: 0px;
+      max-width: 0vw;
+      white-space: nowrap;
+    }
+  }
+  &.top {
+    top: 0px;
+    left: 0px;
+    // min-height: 110px;
+    // max-height: 90vw;
+    min-width: 100vw;
+    width: 100vw;
+    &.jui-drawer-hide {
+      min-height: 0px;
+      max-height: 0vw;
+    }
+  }
+  &.right {
+    top: 0px;
+    right: 0px;
+    min-width: 300px;
+    max-width: 90vw;
+    min-height: 100vh;
+    height: 100vh;
+    &.jui-drawer-hide {
+      min-width: 0px;
+      max-width: 0vw;
+      white-space: nowrap;
+    }
+  }
+  &.bottom {
+    bottom: 0px;
+    left: 0px;
+    min-height: 300px;
+    max-height: 90vw;
+    min-width: 100vw;
+    width: 100vw;
+    &.jui-drawer-hide {
+      min-height: 0px;
+      max-height: 0vw;
+    }
+  }
+  &.jui-drawer-hide {
+    overflow: hidden;
+  }
+  .jui-drawer-header {
+    height: 64px;
+    min-height: 10px;
+    // background-color: #494949; // rgb(60, 70, 128);
+    @apply border-b border-primary-bg-light flex items-center bg-gray-500;
+    .jui-title {
+      @apply mx-1 text-primary-text font-bold capitalize flex-1 justify-center flex;
+    }
+    .start-action {
+    }
+  }
+}

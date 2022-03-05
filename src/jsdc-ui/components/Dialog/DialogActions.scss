@@ -1,0 +1,8 @@
+.jui-dialog-action{
+    @apply flex flex-col mt-5 border-t border-white border-opacity-30;
+    
+    .jui-dialog-action-content{
+        display: flex;
+        justify-content: flex-end;
+    }
+}
