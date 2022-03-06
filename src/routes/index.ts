@@ -3,15 +3,15 @@ import { RouteItem } from './interface'
 import Loadable from 'react-loadable'
 // import Dashboard from '../common/Dashboard/Dashboard'
 
-// const Home = Loadable({
-//   loader: () => import('../pages/MapPage'),
-//   loading: Loading
-// })
+const Home = Loadable({
+  loader: () => import('../pages/Home'),
+  loading: Loading
+})
 
-// const Dashboard = Loadable({
-//   loader: () => import('../pages/Dashboard'),
-//   loading: Loading
-// })
+const Dashboard = Loadable({
+  loader: () => import('../pages/Dashboard'),
+  loading: Loading
+})
 
 const LogIn = Loadable({
   loader: () => import('../pages/Login'),
@@ -24,11 +24,11 @@ const PasswordReset = Loadable({
 })
 
 const routes: Array<RouteItem> = [
-  // { path: '/', exact: true, component: Home, protected: true },
-  { path: '/login', exact: true, component: LogIn, protected: false },
-  // { path: '/dashboard', exact: true, component: Dashboard, protected: true },
-  { path: '/loading', exact: true, component: Loading, protected: true },
-  { path: '/passwordreset', exact: true, component: PasswordReset, protected: false }
+  { path: '/', exact: true, component: Home, protected: true, level: 1 },
+  { path: '/login', exact: true, component: LogIn, protected: false, level: 1 },
+  { path: '/dashboard', exact: true, component: Dashboard, protected: true, level: 2 },
+  { path: '/loading', exact: true, component: Loading, protected: true, level: 1 },
+  { path: '/passwordreset', exact: true, component: PasswordReset, protected: false, level: 1 }
 ]
 
 export default routes

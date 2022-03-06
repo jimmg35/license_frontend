@@ -4,4 +4,5 @@ export interface RouteItem {
     routes?: Array<RouteItem>
     exact?: boolean
     protected: boolean
+    level: number
 }
