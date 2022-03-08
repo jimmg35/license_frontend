@@ -8,10 +8,13 @@ export interface IProtectedRoute {
 
 const ProtectedRoute = (props: IProtectedRoute) => {
   const authStatus = useContext(authStatusContext)
-  if (authStatus.isAuthenticated === true && authStatus.level >= props.level) {
+  if (authStatus.isAuthenticated === false) {
+    return <Navigate to="/login" />
+  }
+  if (authStatus.level >= props.level) {
     return <Outlet />
   }
-  return <Navigate to="/login" />
+  return <Navigate to="/permissionDenied" />
 }
 
 export default ProtectedRoute

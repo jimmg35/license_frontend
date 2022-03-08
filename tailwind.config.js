@@ -23,6 +23,11 @@ module.exports = {
         light: '#49494962',
         dark: '#49494962'
       },
+      bar: {
+        DEFAULT: '#216869',
+        light: '#216869',
+        dark: '#216869'
+      },
       bg: {
         DEFAULT: colors.white,
         accent: colors.indigo[800]
