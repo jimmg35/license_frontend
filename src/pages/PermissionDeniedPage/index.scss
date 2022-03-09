@@ -1,5 +1,6 @@
 .iadc-permissionDenied {
-    @apply w-full h-full bg-gray-200 flex flex-col justify-center;
+    @apply w-full h-full flex flex-col justify-center p-5;
+    background-color: #e5f0ff;
     .contentContainer {
         @apply flex flex-col items-center;
         img {

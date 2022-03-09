@@ -9,7 +9,7 @@ const MenuBar = () => {
   return (
     <div className='iadc-menubar'>
 
-      <div>
+      <div className='user-status'>
         <div
           className='hello'
         >
