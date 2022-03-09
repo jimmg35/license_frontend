@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext } from 'react'
 import './index.scss'
 import { authStatusContext } from '../../routes/AuthStatus/AuthStatusProvider'
 import form from '../../assets/form.png'
+import { AuthStatus } from '../../routes/AuthStatus/AuthStatus'
 // import { Button } from '@mui/material'
 
 export type IApplicationParam = {
@@ -19,11 +20,22 @@ const ApplicationPage = () => {
   const [username, setusername] = useState<string>('')
 
   useEffect(() => {
-    setemail(authStatus.userInfo?.email as string)
-    setusername(authStatus.userInfo?.username as string)
+    const { userEmail, arcGisUserName } = parseUserInfo(authStatus)
+    setemail(userEmail)
+    setusername(arcGisUserName)
   }, [])
 
+  const parseUserInfo = (authStatus: AuthStatus) => {
+    const userEmail = authStatus.userInfo?.email as string
+    const arcGisUserName = userEmail.split('@')[0] + '_NTNUGIS'
+    return { userEmail, arcGisUserName }
+  }
+
   const handleApplicate = () => {
+    if (firstName.trim() === '' || lastName.trim() === '') {
+      alert('請輸入姓名')
+      return
+    }
     const submitParam: IApplicationParam = {
       firstName: firstName,
       lastName: lastName,
@@ -51,7 +63,7 @@ const ApplicationPage = () => {
 
         <div className='info-input-set'>
           <div className='input-set input-long'>
-            <p>First name</p>
+            <p>First name(名)</p>
             <input
               className='iadc-input'
               value={firstName}
@@ -60,7 +72,7 @@ const ApplicationPage = () => {
           </div>
 
           <div className='input-set input-long'>
-            <p>Last name</p>
+            <p>Last name(姓)</p>
             <input
               className='iadc-input'
               value={lastName}
@@ -75,6 +87,7 @@ const ApplicationPage = () => {
               className='iadc-input'
               value={email}
               onInput={(e: React.ChangeEvent<HTMLInputElement>) => { setemail(e.target.value) }}
+              disabled
             ></input>
           </div>
           <div className='input-set input-long'>
@@ -83,6 +96,7 @@ const ApplicationPage = () => {
               className='iadc-input'
               value={username}
               onInput={(e: React.ChangeEvent<HTMLInputElement>) => { setusername(e.target.value) }}
+              disabled
             ></input>
           </div>
         </div>
