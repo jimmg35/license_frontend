@@ -3,10 +3,10 @@
     background-color: #e5f0ff;
     .contentContainer {
         @apply flex flex-col items-center;
-        img {
-            width: 108px;
-            height: 108px;
-        }
+        // img {
+        //     width: 108px;
+        //     height: 108px;
+        // }
         p {
             @apply text-4xl text-black;
         }

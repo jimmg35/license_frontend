@@ -1,4 +1,52 @@
 .iadc-applicationStatus {
-    @apply w-full h-full p-5;
+    @apply w-full h-full p-5 flex justify-center items-center;
     background-color: #e5f0ff;
+    .iadc-table {
+        @media (max-width: 810px) {
+            @apply flex;
+            border-collapse: collapse;
+        }
+        .header {
+            @apply text-white;
+            background-color: #3e6eb1;
+        }
+        .body {
+        }
+        tr {
+            @apply border-b border-warmGray-800;
+            @media (max-width: 810px) {
+                @apply border-b-0 border-r border-warmGray-800;
+                display: block;
+                float: left;
+            }
+        }
+        th {
+            @apply px-3 py-2 text-2xl text-center;
+            @media (max-width: 810px) {
+                @apply text-base;
+                display: block;
+            }
+            @media (max-width: 400px) {
+                @apply text-xs px-2 py-1;
+                display: block;
+            }
+        }
+        td {
+            @apply px-3 py-2 text-2xl text-center;
+            @media (max-width: 810px) {
+                @apply text-base;
+                display: block;
+            }
+            @media (max-width: 400px) {
+                @apply text-xs px-2 py-1;
+                display: block;
+            }
+        }
+    }
+    .notfound {
+        @apply flex flex-col items-center;
+        p {
+            @apply text-xl;
+        }
+    }
 }
