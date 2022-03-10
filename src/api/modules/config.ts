@@ -36,3 +36,11 @@ export const userServiceApiConfig = new ApiConfig({
   // domain: '140.122.82.98',
   // port: '86'
 })
+
+export const applicationServiceApiConfig = new ApiConfig({
+  protocol: process.env.REACT_APP_API_PROTOCOL as string,
+  domain: process.env.REACT_APP_API_DOMAIN as string,
+  port: process.env.REACT_APP_API_PORT as string
+  // domain: '140.122.82.98',
+  // port: '86'
+})

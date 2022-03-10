@@ -3,11 +3,25 @@ import './index.scss'
 import { authStatusContext } from '../../routes/AuthStatus/AuthStatusProvider'
 import form from '../../assets/form.png'
 import { AuthStatus } from '../../routes/AuthStatus/AuthStatus'
-// import { Button } from '@mui/material'
+import { Select, MenuItem } from '@mui/material'
+import api from '../../api'
+
+type statusOption = {
+  [key: number]: string
+}
+
+const responseStatusAlert: statusOption = {
+  200: '申請成功',
+  400: '不允許重複申請',
+  500: '伺服器出錯，請聯繫jim60308@gmail.com'
+}
 
 export type IApplicationParam = {
+  token: string
   firstName: string
   lastName: string
+  grade: string
+  course: string
   email: string
   username: string
 }
@@ -16,6 +30,8 @@ const ApplicationPage = () => {
   const authStatus = useContext(authStatusContext)
   const [firstName, setfirstName] = useState<string>('')
   const [lastName, setlastName] = useState<string>('')
+  const [grade, setgrade] = useState<string>('')
+  const [course, setcourse] = useState<string>('')
   const [email, setemail] = useState<string>('')
   const [username, setusername] = useState<string>('')
 
@@ -31,18 +47,27 @@ const ApplicationPage = () => {
     return { userEmail, arcGisUserName }
   }
 
-  const handleApplicate = () => {
+  const handleApplicate = async () => {
     if (firstName.trim() === '' || lastName.trim() === '') {
       alert('請輸入姓名')
       return
     }
+    if (course.trim() === '' || grade.trim() === '') {
+      alert('請輸入年級與修習課程')
+      return
+    }
     const submitParam: IApplicationParam = {
+      token: localStorage.getItem('token') as string,
       firstName: firstName,
       lastName: lastName,
+      grade: grade,
+      course: course,
       email: email,
       username: username
     }
-    console.log(submitParam)
+    const response = await api.application.newApplication(submitParam)
+    alert(responseStatusAlert[response.status])
+    console.log(response)
     // console.log(firstName)
     // console.log(lastName)
     // console.log(email)
@@ -70,7 +95,6 @@ const ApplicationPage = () => {
               onInput={(e: React.ChangeEvent<HTMLInputElement>) => { setfirstName(e.target.value) }}
             ></input>
           </div>
-
           <div className='input-set input-long'>
             <p>Last name(姓)</p>
             <input
@@ -80,11 +104,39 @@ const ApplicationPage = () => {
             ></input>
           </div>
         </div>
+
+        <div className='info-input-set'>
+          <div className='input-set input-long'>
+            <p>年級</p>
+            <Select
+              value={grade}
+              onChange={(e) => { setgrade(e.target.value) }}
+              className='iadc-input mui-select-patch'
+            >
+              <MenuItem value={'學士1年級'}>學士1年級</MenuItem>
+              <MenuItem value={'學士2年級'}>學士2年級</MenuItem>
+              <MenuItem value={'學士3年級'}>學士3年級</MenuItem>
+              <MenuItem value={'學士4年級'}>學士4年級</MenuItem>
+              <MenuItem value={'碩士班'}>碩士班</MenuItem>
+              <MenuItem value={'博士班'}>博士班</MenuItem>
+              <MenuItem value={'延畢'}>延畢</MenuItem>
+            </Select>
+          </div>
+          <div className='input-set input-long'>
+            <p>修習課程</p>
+            <input
+              className='iadc-input'
+              value={course}
+              onChange={(e) => { setcourse(e.target.value) }}
+            ></input>
+          </div>
+        </div>
+
         <div className='info-input-set'>
           <div className='input-set input-long'>
             <p>E-mail</p>
             <input
-              className='iadc-input'
+              className='iadc-input input-disable'
               value={email}
               onInput={(e: React.ChangeEvent<HTMLInputElement>) => { setemail(e.target.value) }}
               disabled
@@ -93,7 +145,7 @@ const ApplicationPage = () => {
           <div className='input-set input-long'>
             <p>Username</p>
             <input
-              className='iadc-input'
+              className='iadc-input input-disable'
               value={username}
               onInput={(e: React.ChangeEvent<HTMLInputElement>) => { setusername(e.target.value) }}
               disabled

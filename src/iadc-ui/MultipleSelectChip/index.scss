@@ -1,0 +1,18 @@
+.main {
+    .css-9ddj71-MuiInputBase-root-MuiOutlinedInput-root {
+        height: fit-content;
+    }
+    .iadc-input {
+        @apply w-80 text-2xl rounded-md border px-3 bg-white;
+        height: fit-content;
+        // @apply w-80 text-2xl rounded-md border px-3 bg-white;
+        // border-color: #45bfb5;
+        // &:focus {
+        //     outline: none;
+        //     border-color: #45bfb5;
+        // }
+    }
+    // .mui-select-patch {
+    //     @apply px-0;
+    // }
+}
