@@ -14,3 +14,14 @@ export const newApplication = async (options: IApplicationParam) => {
   })
   return response
 }
+
+export const listByUser = async () => {
+  const headersList = {
+    Accept: '*/*'
+  }
+  const response = await fetch(`${applicationServiceApiConfig.serverString}/api/License/listByUser?token=${localStorage.getItem('token')}`, {
+    method: 'GET',
+    headers: headersList
+  })
+  return response
+}

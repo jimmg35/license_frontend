@@ -5,15 +5,30 @@ import form from '../../assets/form.png'
 import { AuthStatus } from '../../routes/AuthStatus/AuthStatus'
 import { Select, MenuItem } from '@mui/material'
 import api from '../../api'
+import Dialog from '@mui/material/Dialog'
+import DialogActions from '@mui/material/DialogActions'
+import DialogContent from '@mui/material/DialogContent'
+import DialogContentText from '@mui/material/DialogContentText'
+import DialogTitle from '@mui/material/DialogTitle'
+import Button from '@mui/material/Button'
 
 type statusOption = {
-  [key: number]: string
+  [key: number]: { title: string, description: string }
 }
 
 const responseStatusAlert: statusOption = {
-  200: '申請成功',
-  400: '不允許重複申請',
-  500: '伺服器出錯，請聯繫jim60308@gmail.com'
+  200: {
+    title: 'Yeah!',
+    description: '申請成功'
+  },
+  400: {
+    title: 'GG!',
+    description: '不允許重複申請'
+  },
+  500: {
+    title: 'QAQ',
+    description: '伺服器死去，請聯繫jim60308@gmail.com'
+  }
 }
 
 export type IApplicationParam = {
@@ -34,6 +49,9 @@ const ApplicationPage = () => {
   const [course, setcourse] = useState<string>('')
   const [email, setemail] = useState<string>('')
   const [username, setusername] = useState<string>('')
+  const [dialogOpen, setdialogOpen] = useState<boolean>(false)
+  const [dialogTitle, setdialogTitle] = useState<string>('')
+  const [dialogContent, setdialogContent] = useState<string>('')
 
   useEffect(() => {
     const { userEmail, arcGisUserName } = parseUserInfo(authStatus)
@@ -66,13 +84,9 @@ const ApplicationPage = () => {
       username: username
     }
     const response = await api.application.newApplication(submitParam)
-    alert(responseStatusAlert[response.status])
-    console.log(response)
-    // console.log(firstName)
-    // console.log(lastName)
-    // console.log(email)
-    // console.log(username)
-    // alert('aa')
+    setdialogOpen(true)
+    setdialogTitle(responseStatusAlert[response.status].title)
+    setdialogContent(responseStatusAlert[response.status].description)
   }
 
   return (
@@ -160,6 +174,29 @@ const ApplicationPage = () => {
           >送出申請</button>
         </div>
       </div>
+
+      <Dialog
+        fullScreen={false}
+        open={dialogOpen}
+        onClose={() => { setdialogOpen(false) }}
+      >
+        <DialogTitle>
+          {dialogTitle}
+        </DialogTitle>
+
+        <DialogContent>
+          <DialogContentText>
+            {dialogContent}
+          </DialogContentText>
+        </DialogContent>
+
+        <DialogActions>
+          <Button onClick={() => { setdialogOpen(false) }} autoFocus>
+            好ㄉ
+          </Button>
+        </DialogActions>
+
+      </Dialog>
 
     </div>
   )
