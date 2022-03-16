@@ -6,6 +6,7 @@ export const authenticateUser = async (user: User) => {
     Accept: '*/*',
     'Content-Type': 'application/x-www-form-urlencoded'
   }
+  console.log(user.password)
   const response = await fetch(`${authServiceApiConfig.serverString}/api/Auth/authenticate`, {
     method: 'POST',
     body: `email=${user.email}&password=${user.password}`,
