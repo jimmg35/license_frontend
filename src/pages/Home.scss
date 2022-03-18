@@ -1,0 +1,12 @@
+.iadc-home {
+    @apply w-screen h-screen bg-white flex;
+    .page-body {
+        @apply w-full bg-white;
+        @media (max-width: 810px) {
+            @apply h-full;
+        }
+    }
+    @media (max-width: 810px) {
+        @apply flex flex-col;
+    }
+}

@@ -1,0 +1,17 @@
+.iadc-permissionDenied {
+    @apply w-full h-full flex flex-col justify-center p-5;
+    background-color: #e5f0ff;
+    .contentContainer {
+        @apply flex flex-col items-center;
+        // img {
+        //     width: 108px;
+        //     height: 108px;
+        // }
+        p {
+            @apply text-4xl text-black;
+        }
+        .btn {
+            @apply m-2 text-black border py-2 px-10 rounded-md border-black;
+        }
+    }
+}

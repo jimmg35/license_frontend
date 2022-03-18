@@ -15,7 +15,6 @@
 }
 
 .loading-page {
-    background-color: rgb(151, 151, 151);
-    width: 100vw;
-    height: 100vh;
+    @apply w-full h-full p-5;
+    background-color: #e5f0ff;
 }

@@ -1,6 +1,6 @@
 import React from 'react'
-import CircularProgress from '../jsdc-ui/components/CircularProgress'
-import './Loading.scss'
+import CircularProgress from '../../jsdc-ui/components/CircularProgress'
+import './index.scss'
 
 const Loading = () => {
   return (

@@ -12,12 +12,12 @@ import Grid from '@mui/material/Grid'
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined'
 import HowToRegOutlinedIcon from '@mui/icons-material/HowToRegOutlined'
 import Typography from '@mui/material/Typography'
-import api from '../api'
-import { User, RegisterUser } from '../api/DTO/User'
+import api from '../../api'
+import { User, RegisterUser } from '../../api/DTO/User'
 import { useNavigate } from 'react-router-dom'
-import { authStatusContext } from '../routes/AuthStatus/AuthStatusProvider'
+import { authStatusContext } from '../../routes/AuthStatus/AuthStatusProvider'
 import classNames from 'classnames'
-import './Login.scss'
+import './index.scss'
 import * as EmailValidator from 'email-validator'
 import Dialog from '@mui/material/Dialog'
 import DialogActions from '@mui/material/DialogActions'
@@ -134,6 +134,7 @@ const SignInSide = () => {
     event.preventDefault()
     const data = new FormData(event.currentTarget)
     if (data.get('password') !== null && data.get('email') !== null) {
+      // console.log(util.encodeBase64(sha256(data.get('password') as any)))
       const response = await api.auth.authenticateUser(
         new User({
           email: data.get('email') as string,
@@ -299,7 +300,7 @@ const SignInSide = () => {
 
       <Grid item xs={false} sm={4} md={7}
         sx={{
-          backgroundImage: 'url(https://images.unsplash.com/photo-1607432750402-48f85c94f63a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80)',
+          backgroundImage: 'url(https://images.unsplash.com/photo-1646534619918-39cfa52033bf?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80)',
           backgroundRepeat: 'no-repeat',
           backgroundColor: (t) =>
             t.palette.mode === 'light' ? t.palette.grey[50] : t.palette.grey[900],

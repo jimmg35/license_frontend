@@ -1,0 +1,77 @@
+.iadc-applicationPage {
+    @apply w-full h-full p-5 flex justify-center items-center;
+    background-color: #e5f0ff;
+    @media (max-height: 900px) {
+        height: fit-content;
+    }
+    .application-form {
+        @apply flex flex-col items-center;
+        .title-set {
+            @apply flex flex-col items-center text-center;
+            .photo {
+                // @media (max-width: 300px) {
+                //     @apply hidden;
+                // }
+                // @media (max-height: 700px) {
+                //     @apply hidden;
+                // }
+            }
+            .title {
+                @apply text-3xl;
+            }
+            .description {
+                @apply text-xl;
+            }
+        }
+        .info-input-set {
+            @apply flex;
+            @media (max-width: 810px) {
+                @apply flex flex-col;
+            }
+            .input-set {
+                @apply flex flex-col my-4 mx-4;
+            }
+            .input-long {
+                .MuiOutlinedInput-root {
+                    @apply w-80;
+                    @media (max-width: 300px) {
+                        @apply w-52;
+                    }
+                }
+                input {
+                    @apply w-80;
+                    @media (max-width: 300px) {
+                        @apply w-52;
+                    }
+                }
+            }
+            .iadc-input {
+                @apply w-80 h-12 text-2xl rounded-md border px-3 bg-white;
+                // border-color: #45bfb5;
+                &:focus {
+                    outline: none;
+                    border-color: #45bfb5;
+                }
+            }
+            .mui-select-patch {
+                @apply px-0;
+            }
+            .input-disable {
+                @apply bg-gray-300;
+            }
+        }
+        .submit-btn-container {
+            @apply w-full px-4;
+            .submit-btn {
+                @apply w-full h-12 text-white rounded-md border;
+                background-color: #3e6eb1;
+                &:hover {
+                    @apply text-black;
+                    background-color: #45bfb5;
+                    border-color: #3e6eb1;
+                    transition: 0.3s;
+                }
+            }
+        }
+    }
+}

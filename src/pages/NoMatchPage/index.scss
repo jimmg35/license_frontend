@@ -1,0 +1,16 @@
+.iadc-permissionDenied {
+    @apply w-screen h-screen bg-gray-600 flex flex-col justify-center;
+    .contentContainer {
+        @apply flex flex-col items-center;
+        img {
+            width: 108px;
+            height: 108px;
+        }
+        p {
+            @apply text-4xl text-white;
+        }
+        .btn {
+            @apply m-2 text-white border py-2 px-10 rounded-md border-white;
+        }
+    }
+}

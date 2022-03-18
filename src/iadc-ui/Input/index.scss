@@ -1,0 +1,8 @@
+.iadc-input {
+    @apply w-80 h-12 text-2xl rounded-md border px-3;
+    // border-color: #45bfb5;
+    &:focus {
+        outline: none;
+        border-color: #45bfb5;
+    }
+}
