@@ -3,7 +3,7 @@ import React, { FC } from 'react'
 import authStatus from './routes/AuthStatus/AuthStatus'
 import { authStatusContext } from './routes/AuthStatus/AuthStatusProvider'
 import ProtectedRoute from './routes/ProtectedRoute'
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { Routes, Route, HashRouter } from 'react-router-dom'
 import {
   PermissionDenied,
   PasswordReset,
@@ -19,7 +19,7 @@ import Loading from './pages/Loading'
 const App: FC = () => {
   (window as any).authStatus = authStatus
   return (
-    <BrowserRouter>
+    <HashRouter>
       <authStatusContext.Provider value={authStatus}>
         <Routes>
 
@@ -60,7 +60,7 @@ const App: FC = () => {
           } */}
         </Routes>
       </authStatusContext.Provider>
-    </BrowserRouter>
+    </HashRouter>
   )
 }
 
