@@ -6,6 +6,12 @@ import { authStatusContext } from '../../../routes/AuthStatus/AuthStatusProvider
 const MenuBar = () => {
   const navigate = useNavigate()
   const authStatus = useContext(authStatusContext)
+
+  const handleLogout = () => {
+    localStorage.removeItem('token')
+    navigate('/login')
+  }
+
   return (
     <div className='iadc-menubar'>
 
@@ -13,7 +19,7 @@ const MenuBar = () => {
         <div
           className='hello'
         >
-          <p>安安你好</p>
+          <p>安安</p>
           <p>{authStatus.userInfo?.username}</p>
         </div>
 
@@ -34,6 +40,11 @@ const MenuBar = () => {
         className='page-btn'
         onClick={() => { navigate('/dashboard') }}
       >儀錶板</button>
+
+      <button
+        className='page-btn logout'
+        onClick={handleLogout}
+      >登出</button>
     </div>
   )
 }
